@@ -12,9 +12,11 @@ class AlbumReviews::CLI
   def list_reviews
     @reviews = AlbumReviews::Reviews.all
     @reviews.each.with_index(1) do |review, i|
-      puts "#{i}. #{review}"
+      puts "#{i}. #{review.artist} - #{review.album_name} - by #{review.author} (#{review.publication_date}) #{review.rating}"
     end
   end
+
+
 
   def menu
     input = nil
@@ -23,7 +25,8 @@ class AlbumReviews::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0
-        puts @reviews[input.to_i - 1]
+        selected_review = @reviews[input.to_i - 1]
+        puts "#{selected_review.artist} - #{selected_review.album_name} - by #{selected_review.author} (#{selected_review.publication_date}) #{selected_review.rating}"
       elsif input == "list"
         list_reviews
       else
