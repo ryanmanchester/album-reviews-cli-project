@@ -1,33 +1,29 @@
 class AlbumReviews::Reviews
   attr_accessor :artist, :album_name, :author, :label, :publication_date, :rating, :url
+  @@all = []
 
   def self.all
-    # puts <<~END
-    # 1. Album of the Week: Mount Eerie
-    # 2. Other Reviews: Yo La Tango
-    # END
+    @@all
+  end
 
-    review_1 = self.new
-    review_1.artist = "Mount Eerie"
-    review_1.album_name = "Now Only"
-    review_1.label = "P.W. Elverum & Sum"
-    review_1.author = "Stephen Mayne"
-    review_1.publication_date = "March 15, 2018"
-    review_1.rating = "8.5/10"
-    review_1.url = "http://www.undertheradarmag.com/reviews/mount_eerie_now_only/"
+  def self.review_index_scrape
+    doc = Nokogiri::HTML(open("http://www.undertheradarmag.com/reviews/category/music/"))
+    binding.pry
+    #artist(featured) = doc.css(".headline").children.css("a").children[0].text
+    #artist =  doc.css(".headline h3 a").children  *iterate over all names*
+    #album_name = doc.css(".headline h4 i a").children  *iterate over these*
+    #label = doc.css(".headline h5").children
+    #publication_date = doc.css(".date").children
+    #url = doc.css(".headline a").attribute("href").value
 
+  end
 
-    review_2 = self.new
-    review_2.artist = "Yo La Tango"
-    review_2.album_name = "There’s a Riot Going On"
-    review_2.label = "Matador"
-    review_2.author = "Adam Turner-Heffer"
-    review_2.publication_date = "Mar 16, 2018"
-    review_2.rating = "8/10"
-    review_2.url = "http://www.undertheradarmag.com/reviews/yo_la_tengo_theres_a_riot_going_on/"
+  def self.review_profile_scrape
+    doc = Nokogiri::HTML(open("http://www.undertheradarmag.com/reviews/david_byrne_american_utopia/"))
+    #binding.pry
+    #author = doc.css(".more-details").children.css("span").children.text
+    #rating = doc.css("#rating b").children.text
 
-
-    [review_1, review_2]
   end
 
 end
