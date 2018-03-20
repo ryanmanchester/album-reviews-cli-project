@@ -26,4 +26,14 @@ class AlbumReviews::Reviews
 
   end
 
+  #iteration code to assign artist, album, label (using artist as example):
+  #artist_name = doc.css(".headline h3 a").children
+  #artist_name.each do |name|
+  #  if @artist == nil
+  #    @artist = name.text
+  #  else
+  #   @artist
+  #  end
+  # end
+
 end
