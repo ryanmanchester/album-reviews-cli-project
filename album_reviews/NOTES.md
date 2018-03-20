@@ -25,3 +25,8 @@ Author?
 2. Reviews
 
 #In addition to providing a list of reviews to be read (with accompanying info on album name, artist, label, realese date), I'd like to be ableto dive deeper and find all reviews by a certain author, all albums on a label, all albums by an artist#
+
+To Do:
+1. Scrape a few review sites to access from one place
+2. Further expose options: list all reviews by a single author, list all reviews (over years) of artists, etc.
+3. Main interface only shows the current week's reviews. Older reviews can be read through author or artist classes.
