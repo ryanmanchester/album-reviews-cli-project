@@ -10,16 +10,13 @@ class AlbumReviews::CLI
   end
 
   def list_reviews
-    puts <<~END
-    1. Album of the Week: Mount Eerie
-    2. Other Reviews: Yo La Tango
-    END
+    @reviews = AlbumReviews::Reviews.all
   end
 
   def menu
     input = nil
     while input != 'exit'
-      puts "Which review would you like to read (1-2)? Or type 'exit' to leave."
+      puts "Which review would you like to read (1-2)? Or type 'list' to list all albums or 'exit' to leave."
       input = gets.strip.downcase
       case input
       when "1"
