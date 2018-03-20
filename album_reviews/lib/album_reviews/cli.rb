@@ -11,6 +11,9 @@ class AlbumReviews::CLI
 
   def list_reviews
     @reviews = AlbumReviews::Reviews.all
+    @reviews.each.with_index(1) do |review, i|
+      puts "#{i}. #{review}"
+    end
   end
 
   def menu
@@ -18,12 +21,10 @@ class AlbumReviews::CLI
     while input != 'exit'
       puts "Which review would you like to read (1-2)? Or type 'list' to list all albums or 'exit' to leave."
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Mount Eerie is sad music."
-      when "2"
-        puts "Yo La Tango is not sad music."
-      when "list"
+
+      if input.to_i > 0
+        puts @reviews[input.to_i - 1]
+      elsif input == "list"
         list_reviews
       else
         puts "Which album? Type 'list' to see all reviews or 'exit'."
