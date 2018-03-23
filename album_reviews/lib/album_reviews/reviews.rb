@@ -6,16 +6,22 @@ class AlbumReviews::Reviews
     @@all
   end
 
+
   def self.review_index_scrape
     doc = Nokogiri::HTML(open("http://www.undertheradarmag.com/reviews/category/music/"))
-    #binding.pry
-    #artist(featured) = doc.css(".headline").children.css("a").children[0].text
-    #  review = self.new
-    # artist =  doc.css(".headline h3 a").children 
-    # album = doc.css(".headline h4 i a").children  
-    # label = doc.css(".headline h5").children
-    # date = doc.css(".date").children
-    # url = doc.css(".headline a").attribute("href").value  
+
+      binding.pry
+      review = self.new
+
+      doc.css(".teaser").each do |article|
+        review.artist = article.css(".headline h3 a").children.text
+        review.album = article.css(".headline h4 i a").children.text
+        review.label = article.css(".headline h5").children.text
+        review.date = article.css(".date").children.text
+        review.url = article.css(".headline a").attribute("href").value
+        self.all << review
+        #Only captures the last one on the list. All the info assinging is correct, but it just makes copies of the object of the last listed review on the review page.
+      end
   end
 
   def self.review_profile_scrape
@@ -25,17 +31,5 @@ class AlbumReviews::Reviews
     #rating = doc.css("#rating b").children.text
 
   end
-
-  #iteration code to assign artist, album, label (using artist as example):
-  #artist_name = doc.css(".headline h3 a").children
-  #artist_name.each do |name|
-  #  if review.artist == nil
-  #    review.artist = name.text
-  #  else
-  #   review.artist
-  #  end
-  # end
-
-  #doc.css(".teaser a").attribute("href").value
 
 end

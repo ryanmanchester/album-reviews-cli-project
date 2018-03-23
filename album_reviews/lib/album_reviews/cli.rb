@@ -10,6 +10,7 @@ class AlbumReviews::CLI
   end
 
   def list_reviews
+    binding.pry
     @reviews = AlbumReviews::Reviews.all
     @reviews.each.with_index(1) do |review, i|
       puts "#{i}. #{review.artist} - #{review.album_name} - by #{review.author} (#{review.publication_date})"
