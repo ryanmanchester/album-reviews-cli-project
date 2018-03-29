@@ -11,9 +11,9 @@ class AlbumReviews::CLI
 
   def list_reviews
     binding.pry
-    @reviews = AlbumReviews::Reviews.all
+    @reviews = AlbumReviews::Reviews.review_index_scrape
     @reviews.each.with_index(1) do |review, i|
-      puts "#{i}. #{review.artist} - #{review.album_name} - by #{review.author} (#{review.publication_date})"
+      puts "#{i}. #{review.artist} - #{review.album_name} - #{review.author} (#{review.date})"
     end
   end
 

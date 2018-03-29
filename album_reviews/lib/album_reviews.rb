@@ -6,6 +6,7 @@ require 'open-uri'
 require_relative 'album_reviews/version'
 require_relative 'album_reviews/cli'
 require_relative 'album_reviews/reviews'
+require_relative 'album_reviews/scraper'
 
 
 # =======
