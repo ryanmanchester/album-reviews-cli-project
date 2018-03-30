@@ -29,7 +29,7 @@ class AlbumReviews::CLI
 
       if input.to_i > 0
         selected_review = @reviews[input.to_i - 1]
-        puts "#{selected_review.artist} - #{selected_review.album} -  #{selected_review.author} (#{selected_review.date}) #{selected_review.rating}"
+        puts "#{selected_review.artist} - #{selected_review.album} -  #{selected_review.author} (#{selected_review.date}) - #{selected_review.rating} out of 10"
       elsif input == "list"
         list_reviews
       else
