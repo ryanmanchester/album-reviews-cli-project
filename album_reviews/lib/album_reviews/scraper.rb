@@ -14,6 +14,7 @@ class AlbumReviews::Scraper
         AlbumReviews::Reviews.all << @review
         #binding.pry
         self.review_profile_scrape(@review.url)
+        #binding.pry
       end
     end
 
@@ -21,7 +22,7 @@ class AlbumReviews::Scraper
     doc = Nokogiri::HTML(open(review_link))
     @review.author = doc.css(".more-details").children.css("span").children.text
     @review.rating = doc.css("#rating b").children.text
-       binding.pry
+       #binding.pry
      end
 
 end
