@@ -1,6 +1,4 @@
 require 'pry'
-#puts "Reading cli.rb"
-
 class AlbumReviews::CLI
 
   def call
@@ -11,11 +9,8 @@ class AlbumReviews::CLI
   end
 
   def list_reviews
-    #binding.pry
-
     @reviews = AlbumReviews::Reviews.all
     @reviews.each.with_index(1) do |review, i|
-      #binding.pry
       puts "#{i}. #{review.artist} - #{review.album} - #{review.author} (#{review.date})"
     end
   end
