@@ -23,6 +23,7 @@ class AlbumReviews::Scraper
       #binding.pry
       @review.author = doc.css(".more-details .byline").children.text
       @review.rating = doc.css("#rating b").text
+      @review.article = doc.css("#main > p:nth-child(11)").text
 
     end
 
