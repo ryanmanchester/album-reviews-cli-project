@@ -22,6 +22,7 @@ class AlbumReviews::Scraper
     doc = Nokogiri::HTML(open(review_link))
     @review.author = doc.css(".more-details").children.css("span").children.text
     @review.rating = doc.css("#rating b").children.text
+    @review.article = doc.css("#main > p:nth-child(9)").text
        #binding.pry
      end
 

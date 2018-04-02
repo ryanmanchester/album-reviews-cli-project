@@ -1,5 +1,5 @@
 class AlbumReviews::Reviews
-  attr_accessor :artist, :album, :author, :label, :date, :rating, :url
+  attr_accessor :artist, :album, :author, :label, :date, :rating, :url, :article
   @@all = []
 
   def self.all
