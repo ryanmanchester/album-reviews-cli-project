@@ -1,8 +1,6 @@
 # AlbumReviews
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/album_reviews`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Album Reviews gem! This gem allows you to read the reviews of 10 albums (published weekly) from lesser known musicians. 
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: album-reviews after installing the gem. 
 
 ## Development
 
