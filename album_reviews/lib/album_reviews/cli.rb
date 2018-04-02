@@ -5,13 +5,14 @@ class AlbumReviews::CLI
 
   def call
     puts "This week's album reviews:"
+    start
     list_reviews
     menu
   end
 
   def list_reviews
     #binding.pry
-    AlbumReviews::Scraper.review_index_scrape
+
     @reviews = AlbumReviews::Reviews.all
     @reviews.each.with_index(1) do |review, i|
       #binding.pry
@@ -19,6 +20,10 @@ class AlbumReviews::CLI
     end
   end
 
+
+  def start
+    AlbumReviews::Scraper.review_index_scrape
+  end
 
 
   def menu
@@ -29,7 +34,7 @@ class AlbumReviews::CLI
 
       if input.to_i > 0
         selected_review = @reviews[input.to_i - 1]
-        puts "#{selected_review.article}"
+        puts "#{selected_review.artist} - #{selected_review.album} - #{selected_review.author} (#{selected_review.date}) - #{selected_review.rating} out of 10"
       elsif input == "list"
         list_reviews
       else
