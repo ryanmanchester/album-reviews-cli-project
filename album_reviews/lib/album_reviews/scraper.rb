@@ -1,3 +1,4 @@
+require 'pry'
 class AlbumReviews::Scraper
 
   def self.review_index_scrape
@@ -5,15 +6,15 @@ class AlbumReviews::Scraper
 
     doc.css(".teaser").each do |article|
       @review = AlbumReviews::Reviews.new
-
         @review.artist = article.css(".headline h3 a").children.text
         @review.album = article.css(".headline h4 i a").children.text
         @review.label = article.css(".headline h5").children.text
         @review.date = article.css(".date").children.text
         @review.url = article.css(".headline a").attribute("href").value
 
-        AlbumReviews::Reviews.all << @review
         self.review_profile_scrape(@review.url)
+
+        @review.save
       end
     end
 
